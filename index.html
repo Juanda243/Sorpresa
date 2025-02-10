@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín 💖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            padding-top: 50px;
+        }
+        .muñequito {
+            width: 165px;
+            position: absolute;
+            top: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        h1 {
+            color: #ff4d6d;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+        .yes {
+            background: #ff4d6d;
+            color: white;
+        }
+        .yes:hover {
+            background: #e0425c;
+            transform: scale(1.1);
+        }
+        .no {
+            background: #444;
+            color: white;
+        }
+        .no:hover {
+            background: #222;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="imagenes/c1a9a7765fc9ab5f375eca196d05a78f-removebg-preview.png" class="muñequito" alt="Muñequito de amor">
+        <h1>¿Quieres ser mi San Valentín? 💕</h1>
+        <div class="buttons">
+            <button class="yes" onclick="sayYes()">Sí 💖</button>
+            <button class="no" onclick="sayNo()">No 💔</button>
+        </div>
+    </div>
+
+    <audio id="sadSong" src="triste_[cut_43sec].mp3"></audio>
+
+    <script>
+        let sadSong = document.getElementById("sadSong");
+
+        function sayYes() {
+            sessionStorage.setItem("playMusic", "true");  // Guardar en sessionStorage
+            window.location.href = "mensaje.html"; 
+        }
+
+        let noMessages = [
+            "¿Segura? 😢",
+            "Piénsalo bien... 🥺",
+            "No puede ser... 💔",
+            "Última oportunidad 😖",
+            "¡Dime que sí! 😭"
+        ];
+        let noClickCount = 0;
+
+        function sayNo() {
+            let noButton = document.querySelector(".no");
+            noButton.innerText = noMessages[noClickCount] || "Ya no insisto 😞";
+            noClickCount++;
+
+            if (noClickCount === noMessages.length) {
+                sadSong.play();  // Reproducir música triste al final
+            }
+        }
+
+        // Asegurar que la música se detenga si el usuario regresa a esta página
+        window.onload = function () {
+            sessionStorage.removeItem("playMusic");  
+        };
+    </script>
+
+</body>
+</html>
+
+
+
+
+

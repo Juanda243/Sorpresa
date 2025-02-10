@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje para Ti 💖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .title {
+            font-size: 24px;
+            color: #ff4d6d;
+            margin-bottom: 20px;
+        }
+        .gift-box {
+            width: 120px;
+            height: 120px;
+            background: red;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 10px;
+            animation: heartbeat 1.5s infinite alternate;
+        }
+        .gift-box::before, .gift-box::after {
+            content: "";
+            position: absolute;
+            background: white;
+        }
+        .gift-box::before {
+            width: 100%;
+            height: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .gift-box::after {
+            width: 20px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .ribbon {
+            position: absolute;
+            width: 80px;
+            height: 30px;
+            background: darkred;
+            top: -15px;
+            border-radius: 10px;
+        }
+        .message-box {
+            width: 300px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            transform: translateY(50px);
+        }
+        .message-box p {
+            font-size: 16px;
+            color: #333;
+            text-align: left;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Un mensaje para ti 💝</h1>
+    <div class="gift-box" onclick="openGift()">
+        <div class="ribbon"></div>
+    </div>
+    <div class="message-box" id="messageBox">
+        <p>Querida Sofi Alejandra,<br><br>
+        Desde el momento en que cruzaste mi camino, supe que eras especial. Aunque no tengamos la oportunidad de vernos a menudo, nuestras conversaciones a través de la distancia son mi refugio y el motivo de mis sonrisas diarias. Tu risa ilumina mis días y tu presencia virtual me llena de alegría. Cada pequeño gesto y cada palabra tuya se han convertido en tesoros invaluables en mi vida.<br><br>
+        Tus ojos, dos luceros que brillan con intensidad, reflejan la belleza de tu alma. Tus manos, tan delicadas y suaves, son el refugio perfecto para mis sueños y esperanzas. Cada instante contigo, aunque sea a través de mensajes y llamadas, es un poema escrito en los cielos, donde cada verso resalta tu bondad, tu ternura y tu amor.<br><br>
+        En un jardín de rosas encontré, La flor más pura y bella que soñé. Con su fragancia mi alma cautivó, Y en su esencia mi corazón se ancló.<br><br>
+        Tus labios, como pétalos de flor, Encienden en mi ser un gran ardor. Y en cada beso, en cada suspiro, Encuentro en ti mi más dulce respiro.<br><br>
+        Hoy, en este día tan especial, quiero abrirte mi corazón y expresarte lo inmenso de mis sentimientos. Eres el sol que ilumina mis mañanas y la luna que acompaña mis noches. Sin ti, mi vida estaría incompleta.<br><br>
+        <strong>¿Quieres ser mi novia?</strong><br><br>
+        Con todo mi amor.</p>
+    </div>
+    <audio id="romanticSong" src="musica_[cut_91sec].mp3"></audio>
+    <script>
+        function openGift() {
+            document.querySelector('.gift-box').style.display = 'none';
+            let messageBox = document.getElementById("messageBox");
+            messageBox.style.display = "block";
+            setTimeout(() => {
+                messageBox.style.opacity = "1";
+                messageBox.style.transform = "translateY(0)";
+            }, 100);
+            document.getElementById("romanticSong").play();
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
